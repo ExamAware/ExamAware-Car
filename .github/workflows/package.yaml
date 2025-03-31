@@ -28,9 +28,21 @@ jobs:
       - name: Configure electron-builder binaries mirror
         run: echo "ELECTRON_BUILDER_BINARIES_MIRROR=https://mirrors.huaweicloud.com/electron-builder-binaries/" >> $GITHUB_ENV
 
+      - name: Ensure required dependencies for Linux
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libxrandr2 libasound2 libpangocairo-1.0-0 libatk1.0-0 libcups2 libxss1 libgdk-pixbuf2.0-0 libgtk-3-0
+
       - name: Fix permissions for app-builder-bin
         if: matrix.os == 'ubuntu-latest'
         run: chmod +x ./node_modules/.pnpm/app-builder-bin@*/node_modules/app-builder-bin/linux/x64/app-builder
+
+      - name: Debug app-builder-bin execution
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          file ./node_modules/.pnpm/app-builder-bin@*/node_modules/app-builder-bin/linux/x64/app-builder
+          ldd ./node_modules/.pnpm/app-builder-bin@*/node_modules/app-builder-bin/linux/x64/app-builder
 
       - name: Build and package for Windows
         if: matrix.os == 'windows-latest'
@@ -42,7 +54,9 @@ jobs:
 
       - name: Build and package for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: pnpm run build:linux
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          github_token: ${{ secrets.github_token }}
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'
