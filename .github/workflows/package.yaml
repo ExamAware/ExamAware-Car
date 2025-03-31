@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
-        node-version: [22.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout
@@ -24,6 +24,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install --global pnpm
 
       - name: Install dependencies
         run: pnpm install
