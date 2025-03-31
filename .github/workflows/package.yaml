@@ -30,15 +30,15 @@ jobs:
 
       - name: Build and package for Windows
         if: matrix.os == 'windows-latest'
-        run: npm build:win
+        run: npm run build:win
 
       - name: Build and package for macOS
         if: matrix.os == 'macos-latest'
-        run: npm build:mac
+        run: npm run build:mac
 
       - name: Build and package for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: npm build:linux
+        run: npm run build:linux
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'
