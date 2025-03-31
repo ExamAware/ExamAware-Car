@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Configure electron-builder binaries mirror
+        run: echo "ELECTRON_BUILDER_BINARIES_MIRROR=https://mirrors.huaweicloud.com/electron-builder-binaries/" >> $GITHUB_ENV
+
       - name: Fix permissions for app-builder-bin
         if: matrix.os == 'ubuntu-latest'
         run: chmod +x ./node_modules/.pnpm/app-builder-bin@*/node_modules/app-builder-bin/linux/x64/app-builder
