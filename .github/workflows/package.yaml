@@ -26,6 +26,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Fix permissions for app-builder-bin
+        if: matrix.os == 'ubuntu-latest'
         run: chmod +x ./node_modules/.pnpm/app-builder-bin@*/node_modules/app-builder-bin/linux/x64/app-builder
 
       - name: Build and package for Windows
