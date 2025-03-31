@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
-        node-version: [20.x]
+        node-version: [22.x]
 
     steps:
       - name: Checkout
@@ -26,39 +26,39 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build and package for Windows
         if: matrix.os == 'windows-latest'
-        run: npm run build:win
+        run: pnpm run build:win
 
       - name: Build and package for macOS
         if: matrix.os == 'macos-latest'
-        run: npm run build:mac
+        run: pnpm run build:mac
 
       - name: Build and package for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: npm run build:linux
+        run: pnpm run build:linux
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: ExamShowboard-Windows
+          name: ExamShowboardCar-Windows
           path: dist/*.exe
 
       - name: Upload artifact for macOS
         if: matrix.os == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: ExamShowboard-macOS
+          name: ExamShowboardCar-macOS
           path: dist/*.dmg
 
       - name: Upload artifact for Linux
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: ExamShowboard-Linux
+          name: ExamShowboardCar-Linux
           path: dist/*.AppImage
 
       - name: Upload assets to GitHub Release
