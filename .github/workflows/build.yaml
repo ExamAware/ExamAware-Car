@@ -25,11 +25,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Build and package for Windows
         if: matrix.os == 'windows-latest'
-        run: yarn build:win
+        run: pnpm build:win
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'

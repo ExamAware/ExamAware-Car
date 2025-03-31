@@ -26,19 +26,19 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Build and package for Windows
         if: matrix.os == 'windows-latest'
-        run: yarn build:win
+        run: pnpm build:win
 
       - name: Build and package for macOS
         if: matrix.os == 'macos-latest'
-        run: yarn build:mac
+        run: pnpm build:mac
 
       - name: Build and package for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: yarn build:linux
+        run: pnpm build:linux
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'
