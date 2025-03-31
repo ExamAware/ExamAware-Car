@@ -28,23 +28,20 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build and package for Windows
         if: matrix.os == 'windows-latest'
-        run: pnpm build:win
+        run: npm build:win
 
       - name: Build and package for macOS
         if: matrix.os == 'macos-latest'
-        run: pnpm build:mac
+        run: npm build:mac
 
       - name: Build and package for Linux
         if: matrix.os == 'ubuntu-latest'
-        run: pnpm build:linux
+        run: npm build:linux
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'
