@@ -1,5 +1,5 @@
-appId: org.dszdev.examshowboard-cat
-productName: ExamShowboard-Car
+appId: org.dszdev.examaware-car
+productName: ExamAware-Car
 directories:
   buildResources: build
 files:
@@ -11,23 +11,32 @@ files:
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 asarUnpack:
   - resources/**
+
+# Windows 配置
 win:
-  executableName: examshowboard-car
+  executableName: examaware-car  # 全小写避免路径问题
+  icon: build/icon.ico
+
+# NSIS 配置
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
-  installerIcon: 'build/icon.ico'
-  uninstallerIcon: 'build/icon.ico'
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+
+# Mac 配置
 mac:
+  category: public.app-category.utilities
   entitlementsInherit: build/entitlements.mac.plist
+  executableName: ExamAware-Car  # 显式指定可执行文件名
   extendInfo:
-    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
-    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
-  notarize: false
-dmg:
-  artifactName: ${name}-${version}.${ext}
+    NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  icon: build/icon.icns  # 确保存在 512x512的icns文件
+
+# Linux 配置
 linux:
   target:
     - AppImage
@@ -35,11 +44,19 @@ linux:
     - deb
   maintainer: electronjs.org
   category: Utility
-appImage:
-  artifactName: ${name}-${version}.${ext}
+
+# 通用配置
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/
 npmRebuild: false
+
+# 发布配置
 publish:
   provider: generic
   url: https://example.com/auto-updates
-electronDownload:
-  mirror: https://npmmirror.com/mirrors/electron/
+
+# 构建产物名称统一
+dmg:
+  artifactName: ${productName}-${version}.${ext}
+appImage:
+  artifactName: ${productName}-${version}.${ext}
