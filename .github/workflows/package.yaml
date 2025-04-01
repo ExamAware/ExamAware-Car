@@ -42,9 +42,7 @@ jobs:
 
       - name: Build and package for Linux
         if: matrix.os == 'ubuntu-latest'
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          github_token: ${{ secrets.github_token }}
+        run: pnpm run build:mac
 
       - name: Upload artifact for Windows
         if: matrix.os == 'windows-latest'
