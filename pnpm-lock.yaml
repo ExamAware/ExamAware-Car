@@ -7,14 +7,13 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
+      electron:
+        specifier: ^35.1.4
+        version: 35.1.4
       electron-builder:
         specifier: ^26.0.12
         version: 26.0.12(electron-builder-squirrel-windows@26.0.12)
-    devDependencies:
-      electron:
-        specifier: ^35.1.2
-        version: 35.1.2
 
 packages:
 
@@ -30,8 +29,8 @@ packages:
     engines: {node: '>=10.12.0'}
     hasBin: true
 
-  '@electron/asar@3.3.1':
-    resolution: {integrity: sha512-WtpC/+34p0skWZiarRjLAyqaAX78DofhDxnREy/V5XHfu1XEXbFCSSMcDQ6hNCPJFaPy8/NnUgYuf9uiCkvKPg==}
+  '@electron/asar@3.4.1':
+    resolution: {integrity: sha512-i4/rNPRS84t0vSRa2HorerGRXWyF4vThfHesw0dmcWHp+cspK743UanA0suA5Q5y8kzY2y6YKrvbIUn69BCAiA==}
     engines: {node: '>=10.12.0'}
     hasBin: true
 
@@ -130,8 +129,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@22.13.14':
-    resolution: {integrity: sha512-Zs/Ollc1SJ8nKUAgc7ivOEdIBM8JAKgrqqUYi2J997JuKO7/tpQC+WCetQ1sypiKCQWHdvdg9wBNpUPEWZae7w==}
+  '@types/node@22.14.0':
+    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
 
   '@types/plist@3.0.5':
     resolution: {integrity: sha512-E6OCaRmAe4WDmWNsL/9RMqdkkzDCY1etutkflWk4c+AcjDU07Pcz1fQwTX0TQz+Pxqn9i4L1TU3UFpjnrcDgxA==}
@@ -448,8 +447,8 @@ packages:
     resolution: {integrity: sha512-bO3y10YikuUwUuDUQRM4KfwNkKhnpVO7IPdbsrejwN9/AABJzzTQ4GeHwyzNSrVO+tEH3/Np255a3sVZpZDjvg==}
     engines: {node: '>=8.0.0'}
 
-  electron@35.1.2:
-    resolution: {integrity: sha512-ipYSDZEV3+PpHfJ8/oWlpMCvxwutX6xLvBz2HRPgEzSFzgLmGO7YXTjEow4DhDtCpGE+b95NTGoJaRAVQi5n7A==}
+  electron@35.1.4:
+    resolution: {integrity: sha512-8HjE2wqxY//T09Of8k1eTpK/NeTG2FkTyRD+fyKXmec4wZVscGgZcmWFC0HYN4ktyHAjtplpxdFXjtqRnvzBMg==}
     engines: {node: '>= 12.20.55'}
     hasBin: true
 
@@ -1189,8 +1188,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   unique-filename@2.0.1:
     resolution: {integrity: sha512-ODWHtkkdx3IAR+veKxFV+VBkUMcN+FaqzUUd7IZzt+0zhDZFPFxhlqwPF3YQvMHx1TD0tdgYl+kuPnJ8E6ql7A==}
@@ -1281,7 +1280,7 @@ snapshots:
       glob: 7.2.3
       minimatch: 3.1.2
 
-  '@electron/asar@3.3.1':
+  '@electron/asar@3.4.1':
     dependencies:
       commander: 5.1.0
       glob: 7.2.3
@@ -1434,7 +1433,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
       '@types/responselike': 1.0.3
 
   '@types/debug@4.1.12':
@@ -1443,36 +1442,36 @@ snapshots:
 
   '@types/fs-extra@9.0.13':
     dependencies:
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
 
   '@types/http-cache-semantics@4.0.4': {}
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@22.13.14':
+  '@types/node@22.14.0':
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 6.21.0
 
   '@types/plist@3.0.5':
     dependencies:
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
       xmlbuilder: 15.1.1
     optional: true
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
 
   '@types/verror@1.10.11':
     optional: true
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
     optional: true
 
   '@xmldom/xmldom@0.8.10': {}
@@ -1881,7 +1880,7 @@ snapshots:
 
   electron-winstaller@5.4.0:
     dependencies:
-      '@electron/asar': 3.3.1
+      '@electron/asar': 3.4.1
       debug: 4.4.0
       fs-extra: 7.0.1
       lodash: 4.17.21
@@ -1891,10 +1890,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  electron@35.1.2:
+  electron@35.1.4:
     dependencies:
       '@electron/get': 2.0.3
-      '@types/node': 22.13.14
+      '@types/node': 22.14.0
       extract-zip: 2.0.1
     transitivePeerDependencies:
       - supports-color
@@ -2671,7 +2670,7 @@ snapshots:
 
   typescript@5.8.2: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.21.0: {}
 
   unique-filename@2.0.1:
     dependencies:
