@@ -16,7 +16,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.5",
   "devDependencies": {
-    "electron": "^35.1.2",
+    "electron": "^35.1.5",
     "electron-builder": "^26.0.12"
   },
   "pnpm": {
